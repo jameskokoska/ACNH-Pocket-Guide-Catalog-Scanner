@@ -661,12 +661,6 @@ Future<void> _infoDaialog(context) async {
         ),
         actions: <Widget>[
           TextButton(
-            child: const Text('Start Scanning!'),
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-          ),
-          TextButton(
             child: const Text('OK'),
             onPressed: () {
               Navigator.of(context).pop();
