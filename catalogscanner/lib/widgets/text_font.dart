@@ -10,6 +10,8 @@ class TextFont extends StatelessWidget {
   final bool fixParagraphMargin;
   final TextOverflow? overflow;
   final bool? softWrap;
+  final TextDecoration? decoration;
+  final Color? decorationColor;
 
   const TextFont({
     Key? key,
@@ -22,25 +24,27 @@ class TextFont extends StatelessWidget {
     this.fixParagraphMargin = false,
     this.overflow,
     this.softWrap,
+    this.decoration,
+    this.decorationColor,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    var finalTextColor;
-    if (this.textColor == null) {
+    Color? finalTextColor;
+    if (textColor == null) {
       finalTextColor = Theme.of(context).textTheme.bodyMedium!.color;
     } else {
       finalTextColor = textColor;
     }
     final TextStyle textStyle = TextStyle(
-      fontWeight: this.fontWeight,
-      fontSize: this.fontSize,
+      fontWeight: fontWeight,
+      fontSize: fontSize,
       fontFamily: 'Avenir',
       color: finalTextColor,
-      decoration: TextDecoration.underline,
-      decorationStyle: TextDecorationStyle.double,
-      decorationColor: Color(0x00FFFFFF),
       overflow: overflow,
+      decoration: decoration,
+      decorationColor: decorationColor,
+      decorationThickness: 2,
       height: 1.1,
     );
     return Text(

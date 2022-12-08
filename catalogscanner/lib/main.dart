@@ -3,6 +3,7 @@ import 'dart:convert';
 
 import 'package:catalogscanner/pages/catalog_list.dart';
 import 'package:catalogscanner/pages/home_page.dart';
+import 'package:catalogscanner/pages/on_board.dart';
 import 'package:catalogscanner/widgets/camera_view.dart';
 import 'package:catalogscanner/pages/text_detector_view.dart';
 import 'package:catalogscanner/widgets/tappable.dart';
@@ -11,10 +12,12 @@ import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
 import 'package:system_theme/system_theme.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 
 List<CameraDescription> cameras = [];
 Set<String> foundText = {};
 bool firstLogin = false;
+late PackageInfo packageInfoGlobal;
 
 String foundTextToStringList() {
   String outString = "";
@@ -38,6 +41,7 @@ void main() async {
   List<String>? foundTextStringList = prefs.getStringList('foundText');
   foundText = (foundTextStringList ?? []).toSet();
   firstLogin = prefs.getBool('firstLogin') ?? true;
+  packageInfoGlobal = await PackageInfo.fromPlatform();
   runApp(const MyApp());
 }
 
@@ -55,6 +59,9 @@ class MyApp extends StatelessWidget {
           brightness: Brightness.light,
           background: Colors.white,
         ),
+        snackBarTheme: const SnackBarThemeData(
+          actionTextColor: Color.fromARGB(255, 129, 162, 212),
+        ),
         useMaterial3: true,
         applyElevationOverlayColor: false,
         canvasColor: Colors.white,
@@ -65,24 +72,29 @@ class MyApp extends StatelessWidget {
           brightness: Brightness.dark,
           background: Colors.black,
         ),
+        snackBarTheme: const SnackBarThemeData(
+          backgroundColor: Color.fromARGB(255, 87, 87, 87),
+          contentTextStyle: TextStyle(color: Colors.white),
+          elevation: 20,
+        ),
         useMaterial3: true,
         canvasColor: Colors.black,
       ),
       themeMode: ThemeMode.system,
-      home: const MyHomePage(),
+      home: const FrameworkPage(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
+class FrameworkPage extends StatefulWidget {
+  const FrameworkPage({super.key});
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<FrameworkPage> createState() => _FrameworkPageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  int currentPage = 0;
+class _FrameworkPageState extends State<FrameworkPage> {
+  int currentPage = firstLogin ? 3 : 0;
 
   void setPage(int page) {
     saveFoundText();
@@ -101,6 +113,9 @@ class _MyHomePageState extends State<MyHomePage> {
       CatalogList(
         setPage: setPage,
       ),
+      OnBoardingPage(
+        setPage: setPage,
+      ),
     ];
   }
 
@@ -114,30 +129,39 @@ class _MyHomePageState extends State<MyHomePage> {
           OverlayCanScrollStack(key: globalOverlayCanScrollStackKey),
         ],
       ),
-      bottomNavigationBar: NavigationBarTheme(
-        data: const NavigationBarThemeData(
-          labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
-          height: 70,
-        ),
-        child: NavigationBar(
-          animationDuration: const Duration(milliseconds: 1000),
-          destinations: const [
-            NavigationDestination(
-              icon: Icon(Icons.home_rounded),
-              label: "Home",
-            ),
-            NavigationDestination(
-              icon: Icon(Icons.camera_rounded),
-              label: "Scan",
-            ),
-            NavigationDestination(
-              icon: Icon(Icons.list_alt_rounded),
-              label: "Catalog",
-            ),
-          ],
-          selectedIndex: currentPage,
-          onDestinationSelected: setPage,
-        ),
+      bottomNavigationBar: AnimatedSize(
+        duration: const Duration(milliseconds: 2000),
+        curve: Curves.easeInOutCubicEmphasized,
+        child: currentPage >= 3
+            ? const SizedBox.shrink(
+                key: ValueKey(1),
+              )
+            : NavigationBarTheme(
+                data: const NavigationBarThemeData(
+                  labelBehavior:
+                      NavigationDestinationLabelBehavior.onlyShowSelected,
+                  height: 70,
+                ),
+                child: NavigationBar(
+                  animationDuration: const Duration(milliseconds: 1000),
+                  destinations: const [
+                    NavigationDestination(
+                      icon: Icon(Icons.home_rounded),
+                      label: "Home",
+                    ),
+                    NavigationDestination(
+                      icon: Icon(Icons.camera_rounded),
+                      label: "Scan",
+                    ),
+                    NavigationDestination(
+                      icon: Icon(Icons.list_alt_rounded),
+                      label: "Catalog",
+                    ),
+                  ],
+                  selectedIndex: currentPage >= 3 ? 0 : currentPage,
+                  onDestinationSelected: setPage,
+                ),
+              ),
       ),
     );
   }

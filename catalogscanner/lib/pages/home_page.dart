@@ -44,11 +44,28 @@ class _HomePageState extends State<HomePage> {
                         fontSize: 35,
                         textAlign: TextAlign.left,
                       ),
-                      Container(
-                        width: 150,
-                        height: 150,
-                        child: const Image(
-                          image: AssetImage('assets/images/palmSplash.png'),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 15),
+                        child: Tappable(
+                          onTap: () async {
+                            await LaunchApp.openApp(
+                              androidPackageName: 'com.acnh.pocket_guide',
+                            );
+                          },
+                          borderRadius: 15,
+                          color:
+                              Theme.of(context).colorScheme.secondaryContainer,
+                          child: Container(
+                            padding: const EdgeInsets.all(6),
+                            child: const SizedBox(
+                              height: 70,
+                              width: 70,
+                              child: Image(
+                                image:
+                                    AssetImage('assets/images/palmSplash.png'),
+                              ),
+                            ),
+                          ),
                         ),
                       ),
                       const Padding(
@@ -148,44 +165,63 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 5),
-              child: Row(
-                children: [
-                  Expanded(
-                    child: Tappable(
-                      onTap: () async {
-                        exportData(context);
-                      },
-                      borderRadius: 15,
-                      color: Theme.of(context).colorScheme.secondaryContainer,
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                            vertical: 30, horizontal: 15.0),
-                        child: Column(
-                          children: [
-                            Icon(
-                              Icons.upload_file_rounded,
-                              size: 35,
-                              color: Theme.of(context)
-                                  .colorScheme
-                                  .onSecondaryContainer,
-                            ),
-                            const SizedBox(height: 10),
-                            TextFont(
-                              text: "Export Catalog",
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                              textColor: Theme.of(context)
-                                  .colorScheme
-                                  .onSecondaryContainer,
-                            ),
-                          ],
+            Opacity(
+              opacity: foundText.isNotEmpty ? 1 : 0.5,
+              child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 25, vertical: 5),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Tappable(
+                        onTap: () async {
+                          if (foundText.isNotEmpty) {
+                            exportData(context);
+                          } else {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                action: SnackBarAction(
+                                  label: "Scanner Guide",
+                                  onPressed: () {
+                                    _aboutGuideDaialog(context, widget.setPage);
+                                  },
+                                ),
+                                content: const Text(
+                                    "Your catalog is empty. Scan some entries before exporting."),
+                              ),
+                            );
+                          }
+                        },
+                        borderRadius: 15,
+                        color: Theme.of(context).colorScheme.secondaryContainer,
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 30, horizontal: 15.0),
+                          child: Column(
+                            children: [
+                              Icon(
+                                Icons.upload_file_rounded,
+                                size: 35,
+                                color: Theme.of(context)
+                                    .colorScheme
+                                    .onSecondaryContainer,
+                              ),
+                              const SizedBox(height: 10),
+                              TextFont(
+                                text: "Export Catalog",
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                                textColor: Theme.of(context)
+                                    .colorScheme
+                                    .onSecondaryContainer,
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
             Padding(
@@ -215,6 +251,47 @@ class _HomePageState extends State<HomePage> {
                             const SizedBox(width: 6),
                             TextFont(
                               text: "Scanner Guide",
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                              textColor: Theme.of(context)
+                                  .colorScheme
+                                  .onSecondaryContainer,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 5),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Tappable(
+                      onTap: () async {
+                        _infoDaialog(context, widget.setPage);
+                      },
+                      borderRadius: 15,
+                      color: Theme.of(context).colorScheme.secondaryContainer,
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 20, horizontal: 15.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(
+                              Icons.info_rounded,
+                              size: 35,
+                              color: Theme.of(context)
+                                  .colorScheme
+                                  .onSecondaryContainer,
+                            ),
+                            const SizedBox(width: 6),
+                            TextFont(
+                              text: "App Info",
                               fontSize: 18,
                               fontWeight: FontWeight.bold,
                               textColor: Theme.of(context)
@@ -272,45 +349,39 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 5),
-              child: Row(
-                children: [
-                  Expanded(
-                    child: Tappable(
-                      onTap: () async {
-                        _infoDaialog(context);
-                      },
-                      borderRadius: 15,
-                      color: Theme.of(context).colorScheme.secondaryContainer,
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                            vertical: 20, horizontal: 15.0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(
-                              Icons.info_rounded,
-                              size: 35,
-                              color: Theme.of(context)
-                                  .colorScheme
-                                  .onSecondaryContainer,
-                            ),
-                            const SizedBox(width: 6),
-                            TextFont(
-                              text: "App Info",
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                              textColor: Theme.of(context)
-                                  .colorScheme
-                                  .onSecondaryContainer,
-                            ),
-                          ],
-                        ),
+            const SizedBox(height: 25),
+            GestureDetector(
+              onTap: () async {
+                final Uri url =
+                    Uri.parse('mailto:dapperappdeveloper@gmail.com');
+                await launchUrl(url);
+              },
+              child: Center(
+                child: Padding(
+                  padding: const EdgeInsets.all(10),
+                  child: Column(
+                    children: const [
+                      TextFont(
+                        text:
+                            "Suggestions, bugs or concerns?\nSend me an email!",
+                        maxLines: 100,
+                        fontSize: 15,
+                        textAlign: TextAlign.center,
+                        textColor: Color(0xFF6D9ECE),
                       ),
-                    ),
+                      SizedBox(height: 5),
+                      TextFont(
+                        text: "dapperappdeveloper@gmail.com",
+                        maxLines: 100,
+                        fontSize: 17,
+                        textAlign: TextAlign.center,
+                        textColor: Color(0xFF6D9ECE),
+                        decorationColor: Color(0xFF6D9ECE),
+                        decoration: TextDecoration.underline,
+                      ),
+                    ],
                   ),
-                ],
+                ),
               ),
             ),
             const SizedBox(height: 40),
@@ -325,7 +396,7 @@ void exportData(context) async {
   bool success = false;
   openLoadingPopup(context);
   try {
-    await Future.delayed(Duration(milliseconds: 500));
+    await Future.delayed(const Duration(milliseconds: 300));
     await Clipboard.setData(
       ClipboardData(
         text: foundTextToStringList(),
@@ -549,6 +620,15 @@ Future<void> _aboutGuideDaialog(context, Function(int) setPage) async {
                   fontSize: 16,
                 ),
               ),
+              SizedBox(height: 10),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20),
+                child: TextFont(
+                  text: "After scanning, export your catalog",
+                  maxLines: 100,
+                  fontSize: 16,
+                ),
+              ),
             ],
           ),
         ),
@@ -572,12 +652,14 @@ Future<void> _aboutGuideDaialog(context, Function(int) setPage) async {
   );
 }
 
-Future<void> _infoDaialog(context) async {
+Future<void> _infoDaialog(context, setPage) async {
   return showDialog<void>(
     context: context,
     builder: (BuildContext context) {
+      String version = packageInfoGlobal.version;
+      String buildNumber = packageInfoGlobal.buildNumber;
       return AlertDialog(
-        title: const Text('About App'),
+        title: const Text('About'),
         content: SingleChildScrollView(
           child: ListBody(
             children: [
@@ -620,14 +702,14 @@ Future<void> _infoDaialog(context) async {
                           Uri.parse('mailto:dapperappdeveloper@gmail.com');
                       await launchUrl(url);
                     },
-                    child: Padding(
-                      padding: const EdgeInsets.all(10),
+                    child: const Padding(
+                      padding: EdgeInsets.all(10),
                       child: TextFont(
                         text: "dapperappdeveloper@gmail.com",
                         maxLines: 100,
                         fontSize: 14.5,
                         textAlign: TextAlign.center,
-                        textColor: Colors.blue[200],
+                        textColor: Color(0xFF6D9ECE),
                       ),
                     ),
                   ),
@@ -635,7 +717,7 @@ Future<void> _infoDaialog(context) async {
               ),
               const SizedBox(height: 15),
               Tappable(
-                color: Theme.of(context).colorScheme.secondaryContainer,
+                color: Theme.of(context).colorScheme.primary,
                 borderRadius: 10,
                 onTap: () {
                   showLicensePage(
@@ -649,8 +731,27 @@ Future<void> _infoDaialog(context) async {
                     child: TextFont(
                       fontSize: 15,
                       text: "View Licenses",
-                      textColor:
-                          Theme.of(context).colorScheme.onSecondaryContainer,
+                      textColor: Theme.of(context).colorScheme.onPrimary,
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 15),
+              Tappable(
+                color: Theme.of(context).colorScheme.primary,
+                borderRadius: 10,
+                onTap: () {
+                  setPage(3);
+                  Navigator.pop(context);
+                },
+                child: Padding(
+                  padding: const EdgeInsets.all(10),
+                  child: Center(
+                    child: TextFont(
+                      fontSize: 15,
+                      text: "View App Onboarding",
+                      textColor: Theme.of(context).colorScheme.onPrimary,
                       textAlign: TextAlign.center,
                     ),
                   ),
