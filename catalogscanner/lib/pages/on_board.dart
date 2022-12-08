@@ -238,7 +238,6 @@ class OnBoardingPageBodyState extends State<OnBoardingPageBody> {
             setState(() {
               currentIndex = value;
             });
-            print(currentIndex);
           },
           controller: controller,
           children: children,
