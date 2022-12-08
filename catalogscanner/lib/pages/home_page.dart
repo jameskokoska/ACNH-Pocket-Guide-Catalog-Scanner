@@ -488,28 +488,35 @@ Future<void> _exportGuideDaialog(context) async {
           title: const Text('You\'re good to go!'),
           content: SingleChildScrollView(
             child: ListBody(
-              children: const <Widget>[
-                TextFont(
+              children: [
+                const TextFont(
                   text: "Open ACNH Pocket Guide",
                   maxLines: 100,
                   fontSize: 16,
                 ),
-                SizedBox(height: 10),
-                SizedBox(
-                  width: 150,
-                  height: 70,
-                  child: Image(
-                    image: AssetImage('assets/images/app-icon.png'),
+                const SizedBox(height: 10),
+                GestureDetector(
+                  onTap: () async {
+                    await LaunchApp.openApp(
+                      androidPackageName: 'com.acnh.pocket_guide',
+                    );
+                  },
+                  child: const SizedBox(
+                    width: 150,
+                    height: 70,
+                    child: Image(
+                      image: AssetImage('assets/images/app-icon.png'),
+                    ),
                   ),
                 ),
-                SizedBox(height: 10),
-                TextFont(
+                const SizedBox(height: 10),
+                const TextFont(
                   text: "Open the catalog scanner page",
                   maxLines: 100,
                   fontSize: 16,
                 ),
-                SizedBox(height: 10),
-                SizedBox(
+                const SizedBox(height: 10),
+                const SizedBox(
                   width: 150,
                   height: 70,
                   child: Image(
@@ -517,14 +524,14 @@ Future<void> _exportGuideDaialog(context) async {
                         AssetImage('assets/images/catalog-scanning-option.png'),
                   ),
                 ),
-                SizedBox(height: 10),
-                TextFont(
+                const SizedBox(height: 10),
+                const TextFont(
                   text: "Paste your collection in the list text box",
                   maxLines: 100,
                   fontSize: 16,
                 ),
-                SizedBox(height: 10),
-                SizedBox(
+                const SizedBox(height: 10),
+                const SizedBox(
                   width: 150,
                   height: 280,
                   child: Image(
