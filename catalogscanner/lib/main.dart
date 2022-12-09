@@ -14,6 +14,8 @@ import 'package:system_theme/system_theme.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
+// flutter build appbundle --release
+
 List<CameraDescription> cameras = [];
 Set<String> foundText = {};
 bool firstLogin = false;
