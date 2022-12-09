@@ -88,24 +88,24 @@ class _TextRecognizerViewState extends State<TextRecognizerView> {
       _customPaint = CustomPaint(painter: painter);
       for (TextBlock textBlock in recognizedText.blocks) {
         // Only start scanning if it found 3 (of any) entries in the frame
-        if (currentlyDisplayedText.length >= 3) {
-          if (foundText.contains(textBlock.text)) {
-            continue;
-          } else if (dataset.contains(textBlock.text)) {
-            foundText.add(textBlock.text);
-            globalOverlayStackKey.currentState!.post(textBlock.text);
-            numberNew++;
-          }
-          if (numberNew >= 8) {
-            globalOverlayCanScrollStackKey.currentState!.post(true);
-            numberNew = 0;
-            saveFoundText();
-          }
+        // if (currentlyDisplayedText.length >= 3) {
+        if (foundText.contains(textBlock.text)) {
+          continue;
+        } else if (dataset.contains(textBlock.text)) {
+          foundText.add(textBlock.text);
+          globalOverlayStackKey.currentState!.post(textBlock.text);
+          numberNew++;
         }
+        if (numberNew >= 8) {
+          globalOverlayCanScrollStackKey.currentState!.post(true);
+          numberNew = 0;
+          saveFoundText();
+        }
+        // }
 
-        if (dataset.contains(textBlock.text)) {
-          currentlyDisplayedText.add(textBlock.text);
-        }
+        // if (dataset.contains(textBlock.text)) {
+        //   currentlyDisplayedText.add(textBlock.text);
+        // }
       }
     } else {
       _text = 'Recognized text:\n\n${recognizedText.text}';
