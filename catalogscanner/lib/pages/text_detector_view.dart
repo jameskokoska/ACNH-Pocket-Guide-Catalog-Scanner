@@ -102,7 +102,6 @@ class _TextRecognizerViewState extends State<TextRecognizerView> {
           saveFoundText();
         }
         // }
-
         // if (dataset.contains(textBlock.text)) {
         //   currentlyDisplayedText.add(textBlock.text);
         // }

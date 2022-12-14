@@ -419,14 +419,18 @@ void exportData(context) async {
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
-          content: Text('There was an error exporting data!'),
+          content: Text(
+              'There was an error exporting data! Please email dapperappdeveloper@gmail.com for more information.'),
         ),
       );
     }
   }
   Navigator.pop(context);
   if (success) {
-    await _exportGuideDaialog(context);
+    _exportGuideDaialog(context);
+    Future.delayed(const Duration(milliseconds: 700), () {
+      _supportDialog(context);
+    });
   }
 }
 
@@ -489,6 +493,18 @@ Future<void> _exportGuideDaialog(context) async {
           content: SingleChildScrollView(
             child: ListBody(
               children: [
+                const TextFont(
+                  text: "Your collection has been attached to your clipboard",
+                  maxLines: 100,
+                  fontSize: 16,
+                ),
+                const SizedBox(height: 30),
+                const TextFont(
+                  text: "Import Collection",
+                  maxLines: 100,
+                  fontSize: 24,
+                ),
+                const SizedBox(height: 10),
                 const TextFont(
                   text: "Open ACNH Pocket Guide",
                   maxLines: 100,
@@ -775,6 +791,74 @@ Future<void> _infoDaialog(context, setPage) async {
             },
           ),
         ],
+      );
+    },
+  );
+}
+
+Future<void> _supportDialog(context) async {
+  return showDialog<void>(
+    context: context,
+    barrierDismissible: false,
+    builder: (BuildContext context) {
+      return WillPopScope(
+        onWillPop: () async {
+          return false;
+        },
+        child: AlertDialog(
+          title: const Text('Support the Developer'),
+          content: SingleChildScrollView(
+            child: ListBody(
+              children: [
+                const TextFont(
+                  text:
+                      "If this application helped you out, consider supporting the ACNH Pocket Guide App.",
+                  maxLines: 100,
+                  fontSize: 16,
+                ),
+                const SizedBox(height: 10),
+                // SizedBox(
+                //   width: 60,
+                //   height: 60,
+                //   child: Image(
+                //     image: AssetImage('assets/images/james.png'),
+                //   ),
+                // ),
+                GestureDetector(
+                  onTap: () async {
+                    await LaunchApp.openApp(
+                      androidPackageName: 'com.acnh.pocket_guide',
+                    );
+                  },
+                  child: const SizedBox(
+                    width: 100,
+                    height: 90,
+                    child: Image(
+                      image: AssetImage('assets/images/support-option.png'),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          actions: <Widget>[
+            TextButton(
+              child: const Text('Open ACNH Pocket Guide'),
+              onPressed: () async {
+                await LaunchApp.openApp(
+                  androidPackageName: 'com.acnh.pocket_guide',
+                );
+                Navigator.of(context).pop();
+              },
+            ),
+            TextButton(
+              child: const Text('OK'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        ),
       );
     },
   );

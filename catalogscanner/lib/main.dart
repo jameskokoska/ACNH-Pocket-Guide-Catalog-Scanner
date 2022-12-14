@@ -62,7 +62,7 @@ class MyApp extends StatelessWidget {
           background: Colors.white,
         ),
         snackBarTheme: const SnackBarThemeData(
-          actionTextColor: Color.fromARGB(255, 129, 162, 212),
+          actionTextColor: Color(0xFF81A2D4),
         ),
         useMaterial3: true,
         applyElevationOverlayColor: false,
@@ -74,11 +74,7 @@ class MyApp extends StatelessWidget {
           brightness: Brightness.dark,
           background: Colors.black,
         ),
-        snackBarTheme: const SnackBarThemeData(
-          backgroundColor: Color.fromARGB(255, 87, 87, 87),
-          contentTextStyle: TextStyle(color: Colors.white),
-          elevation: 20,
-        ),
+        snackBarTheme: const SnackBarThemeData(),
         useMaterial3: true,
         canvasColor: Colors.black,
       ),
