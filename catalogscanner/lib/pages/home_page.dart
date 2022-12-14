@@ -444,13 +444,13 @@ Future<void> _eraseCatalogDialog(context, Function onDone) async {
           child: ListBody(
             children: const <Widget>[
               TextFont(
-                text: "This will delete your entire scanned collection.",
+                text: "This will delete your entire scanned collection",
                 maxLines: 100,
                 fontSize: 16,
               ),
               SizedBox(height: 10),
               TextFont(
-                text: "This cannot be undone.",
+                text: "This cannot be undone",
                 maxLines: 100,
                 fontSize: 16,
               ),
@@ -688,7 +688,7 @@ Future<void> _infoDaialog(context, setPage) async {
             children: [
               const TextFont(
                 text:
-                    "This app was made to work directly with ACNH Pocket Guide.",
+                    "This app was made to work directly with ACNH Pocket Guide",
                 maxLines: 100,
                 fontSize: 16,
               ),
