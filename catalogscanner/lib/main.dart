@@ -99,6 +99,7 @@ class _FrameworkPageState extends State<FrameworkPage> {
     setState(() {
       currentPage = page;
     });
+    _supportedLanguagePopup(context);
   }
 
   List<Widget> pages = [];
@@ -115,6 +116,7 @@ class _FrameworkPageState extends State<FrameworkPage> {
         setPage: setPage,
       ),
     ];
+    Future.delayed(Duration(milliseconds: 0), () {});
   }
 
   @override
@@ -162,6 +164,57 @@ class _FrameworkPageState extends State<FrameworkPage> {
               ),
       ),
     );
+  }
+}
+
+Future<void> _supportedLanguagePopup(context) async {
+  final prefs = await SharedPreferences.getInstance();
+  bool? hideLanguagePopup = false;
+  if (hideLanguagePopup != true) {
+    Locale locale = Localizations.localeOf(context);
+    if (locale.languageCode != 'en') {
+      return showDialog<void>(
+        context: context,
+        barrierDismissible: false,
+        builder: (BuildContext context) {
+          return WillPopScope(
+            onWillPop: () async {
+              return false;
+            },
+            child: AlertDialog(
+              title: const Text('English Only'),
+              content: SingleChildScrollView(
+                child: ListBody(
+                  children: const [
+                    TextFont(
+                      text:
+                          "Only English is supported. Your catalog will only scan if your game is set to English!",
+                      maxLines: 100,
+                      fontSize: 16,
+                    ),
+                  ],
+                ),
+              ),
+              actions: <Widget>[
+                TextButton(
+                  child: const Text('Don\'t show again'),
+                  onPressed: () {
+                    prefs.setBool('hideSupportedLanguagePopup', true);
+                    Navigator.of(context).pop();
+                  },
+                ),
+                TextButton(
+                  child: const Text('OK'),
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                ),
+              ],
+            ),
+          );
+        },
+      );
+    }
   }
 }
 
