@@ -1,7 +1,6 @@
 import 'dart:convert';
 import 'dart:developer';
 
-import 'package:catalogscanner/data/dataSet.dart';
 import 'package:catalogscanner/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -91,7 +90,7 @@ class _TextRecognizerViewState extends State<TextRecognizerView> {
         // if (currentlyDisplayedText.length >= 3) {
         if (foundText.contains(textBlock.text)) {
           continue;
-        } else if (dataset.contains(textBlock.text)) {
+        } else if (dataSetTranslations[textBlock.text] != null) {
           foundText.add(textBlock.text);
           globalOverlayStackKey.currentState!.post(textBlock.text);
           numberNew++;

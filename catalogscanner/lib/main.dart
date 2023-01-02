@@ -1,8 +1,8 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
+import 'package:flutter/services.dart' show rootBundle;
 
-import 'package:catalogscanner/data/dataSetTranslations.dart';
 import 'package:catalogscanner/pages/catalog_list.dart';
 import 'package:catalogscanner/pages/home_page.dart';
 import 'package:catalogscanner/pages/on_board.dart';
@@ -26,8 +26,8 @@ late PackageInfo packageInfoGlobal;
 String foundTextToStringList() {
   Set outSet = {};
   for (String text in foundText.toList()) {
-    if (translationDataset[text] != null) {
-      outSet.add(translationDataset[text]["n"]);
+    if (dataSetTranslations[text] != null) {
+      outSet.add(dataSetTranslations[text]!["n"]);
     }
   }
   String outString = "";
@@ -43,6 +43,8 @@ Future<bool> saveFoundText() async {
   return true;
 }
 
+late Map<String, dynamic> dataSetTranslations;
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   cameras = await availableCameras();
@@ -52,6 +54,7 @@ void main() async {
   foundText = (foundTextStringList ?? []).toSet();
   firstLogin = prefs.getBool('firstLogin') ?? true;
   packageInfoGlobal = await PackageInfo.fromPlatform();
+  dataSetTranslations = await openJsonTranslations();
   runApp(const MyApp());
 }
 
@@ -325,4 +328,11 @@ class OverlayStackState extends State<OverlayStack> {
       ),
     );
   }
+}
+
+Future<Map<String, dynamic>> openJsonTranslations() async {
+  String input =
+      await rootBundle.loadString("assets/data/dataSetTranslations.json");
+  dynamic map = jsonDecode(input);
+  return map;
 }
