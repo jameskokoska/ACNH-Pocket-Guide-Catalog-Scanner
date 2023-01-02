@@ -89,9 +89,10 @@ class _TextRecognizerViewState extends State<TextRecognizerView> {
       for (TextBlock textBlock in recognizedText.blocks) {
         // Only start scanning if it found 3 (of any) entries in the frame
         // if (currentlyDisplayedText.length >= 3) {
-        if (foundText.contains(textBlock.text)) {
+        if (dataset[textBlock.text] != null &&
+            foundText.contains(textBlock.text)) {
           continue;
-        } else if (dataset.contains(textBlock.text)) {
+        } else if (dataset[textBlock.text] != null) {
           foundText.add(textBlock.text);
           globalOverlayStackKey.currentState!.post(textBlock.text);
           numberNew++;

@@ -1,6 +1,8 @@
 import 'dart:async';
 import 'dart:convert';
+import 'dart:io';
 
+import 'package:catalogscanner/data/dataSet.dart';
 import 'package:catalogscanner/pages/catalog_list.dart';
 import 'package:catalogscanner/pages/home_page.dart';
 import 'package:catalogscanner/pages/on_board.dart';
@@ -22,8 +24,12 @@ bool firstLogin = false;
 late PackageInfo packageInfoGlobal;
 
 String foundTextToStringList() {
-  String outString = "";
+  Set outSet = {};
   for (String text in foundText.toList()) {
+    outSet.add(dataset[text]["english"]);
+  }
+  String outString = "";
+  for (String text in outSet.toList()) {
     outString += text + "\n";
   }
   return outString;
@@ -169,10 +175,9 @@ class _FrameworkPageState extends State<FrameworkPage> {
 
 Future<void> _supportedLanguagePopup(context) async {
   final prefs = await SharedPreferences.getInstance();
-  bool? hideLanguagePopup = false;
+  bool? hideLanguagePopup = prefs.getBool('hideSupportedLanguagePopup');
   if (hideLanguagePopup != true) {
-    Locale locale = Localizations.localeOf(context);
-    if (locale.languageCode != 'en') {
+    if (!Platform.localeName.startsWith("en")) {
       return showDialog<void>(
         context: context,
         barrierDismissible: false,
@@ -188,7 +193,7 @@ Future<void> _supportedLanguagePopup(context) async {
                   children: const [
                     TextFont(
                       text:
-                          "Only English is supported. Your catalog will only scan if your game is set to English!",
+                          "Only English, French, German, Spanish, Italian, and Dutch is supported. Your catalog will only scan if your game is set to English!",
                       maxLines: 100,
                       fontSize: 16,
                     ),
