@@ -2,7 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:catalogscanner/data/dataSet.dart';
+import 'package:catalogscanner/data/dataSetTranslations.dart';
 import 'package:catalogscanner/pages/catalog_list.dart';
 import 'package:catalogscanner/pages/home_page.dart';
 import 'package:catalogscanner/pages/on_board.dart';
@@ -26,7 +26,9 @@ late PackageInfo packageInfoGlobal;
 String foundTextToStringList() {
   Set outSet = {};
   for (String text in foundText.toList()) {
-    outSet.add(dataset[text]["english"]);
+    if (translationDataset[text] != null) {
+      outSet.add(translationDataset[text]["n"]);
+    }
   }
   String outString = "";
   for (String text in outSet.toList()) {
