@@ -13,6 +13,7 @@ class TextFont extends StatelessWidget {
   final bool? softWrap;
   final TextDecoration? decoration;
   final Color? decorationColor;
+  final Function(String)? filter;
 
   const TextFont({
     Key? key,
@@ -27,6 +28,7 @@ class TextFont extends StatelessWidget {
     this.softWrap,
     this.decoration,
     this.decorationColor,
+    this.filter,
   }) : super(key: key);
 
   @override
@@ -49,7 +51,7 @@ class TextFont extends StatelessWidget {
       height: 1.1,
     );
     return Text(
-      translate("$text"),
+      filter != null ? filter!(translate("$text")) : translate("$text"),
       maxLines: maxLines,
       textAlign: textAlign,
       overflow: overflow ?? TextOverflow.ellipsis,

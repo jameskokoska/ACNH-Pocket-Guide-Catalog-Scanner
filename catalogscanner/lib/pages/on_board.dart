@@ -70,11 +70,15 @@ class OnBoardingPageBodyState extends State<OnBoardingPageBody> {
           Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const TextFont(
+              TextFont(
                 text: "Catalog Scanner",
                 fontWeight: FontWeight.bold,
                 fontSize: 35,
-                textAlign: TextAlign.left,
+                textAlign: TextAlign.center,
+                filter: (text) {
+                  return text.capitalizeFirstofEach;
+                },
+                maxLines: 5,
               ),
               const SizedBox(height: 50),
               Padding(
@@ -102,7 +106,8 @@ class OnBoardingPageBodyState extends State<OnBoardingPageBody> {
               const TextFont(
                 text: "For ACNH Pocket Guide",
                 fontSize: 16,
-                textAlign: TextAlign.left,
+                textAlign: TextAlign.center,
+                maxLines: 3,
               ),
               const SizedBox(height: 50),
               const Padding(
@@ -222,6 +227,9 @@ class OnBoardingPageBodyState extends State<OnBoardingPageBody> {
                     textColor:
                         Theme.of(context).colorScheme.onSecondaryContainer,
                     textAlign: TextAlign.center,
+                    filter: (text) {
+                      return text.capitalizeFirstofEach;
+                    },
                   ),
                 ),
               ),

@@ -35,48 +35,57 @@ class _HomePageState extends State<HomePage> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      const TextFont(
-                        text: "Catalog Scanner",
-                        fontWeight: FontWeight.bold,
-                        fontSize: 35,
-                        textAlign: TextAlign.left,
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 15),
-                        child: Tappable(
-                          onTap: () async {
-                            await LaunchApp.openApp(
-                              androidPackageName: 'com.acnh.pocket_guide',
-                            );
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        TextFont(
+                          text: "Catalog Scanner",
+                          maxLines: 3,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 35,
+                          textAlign: TextAlign.center,
+                          softWrap: true,
+                          filter: (text) {
+                            return text.capitalizeFirstofEach;
                           },
-                          borderRadius: 15,
-                          color:
-                              Theme.of(context).colorScheme.secondaryContainer,
-                          child: Container(
-                            padding: const EdgeInsets.all(6),
-                            child: const SizedBox(
-                              height: 70,
-                              width: 70,
-                              child: Image(
-                                image:
-                                    AssetImage('assets/images/palmSplash.png'),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 15),
+                          child: Tappable(
+                            onTap: () async {
+                              await LaunchApp.openApp(
+                                androidPackageName: 'com.acnh.pocket_guide',
+                              );
+                            },
+                            borderRadius: 15,
+                            color: Theme.of(context)
+                                .colorScheme
+                                .secondaryContainer,
+                            child: Container(
+                              padding: const EdgeInsets.all(6),
+                              child: const SizedBox(
+                                height: 70,
+                                width: 70,
+                                child: Image(
+                                  image: AssetImage(
+                                      'assets/images/palmSplash.png'),
+                                ),
                               ),
                             ),
                           ),
                         ),
-                      ),
-                      const Padding(
-                        padding: EdgeInsets.only(left: 2),
-                        child: TextFont(
-                          text: "For ACNH Pocket Guide",
-                          fontSize: 16,
-                          textAlign: TextAlign.left,
+                        const Padding(
+                          padding: EdgeInsets.only(left: 2),
+                          child: TextFont(
+                            text: "For ACNH Pocket Guide",
+                            fontSize: 16,
+                            textAlign: TextAlign.left,
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ],
               ),
@@ -109,11 +118,16 @@ class _HomePageState extends State<HomePage> {
                             const SizedBox(height: 10),
                             TextFont(
                               text: "Scan Catalog",
+                              maxLines: 3,
+                              textAlign: TextAlign.center,
                               fontSize: 18,
                               fontWeight: FontWeight.bold,
                               textColor: Theme.of(context)
                                   .colorScheme
                                   .onSecondaryContainer,
+                              filter: (text) {
+                                return text.capitalizeFirstofEach;
+                              },
                             ),
                             const SizedBox(height: 10),
                           ],
@@ -145,15 +159,22 @@ class _HomePageState extends State<HomePage> {
                             TextFont(
                               text: "View Catalog",
                               fontSize: 18,
+                              maxLines: 3,
+                              textAlign: TextAlign.center,
                               fontWeight: FontWeight.bold,
                               textColor: Theme.of(context)
                                   .colorScheme
                                   .onSecondaryContainer,
+                              filter: (text) {
+                                return text.capitalizeFirstofEach;
+                              },
+                            ),
+                            const SizedBox(
+                              height: 5,
                             ),
                             TextFont(
-                              text: foundText.length.toString() +
-                                  " " +
-                                  translate("entries"),
+                              text:
+                                  "${foundText.length} ${translate("entries")}",
                               fontSize: 15,
                               textColor: Theme.of(context)
                                   .colorScheme
@@ -258,6 +279,9 @@ class _HomePageState extends State<HomePage> {
                               textColor: Theme.of(context)
                                   .colorScheme
                                   .onSecondaryContainer,
+                              filter: (text) {
+                                return text.capitalizeFirstofEach;
+                              },
                             ),
                           ],
                         ),
@@ -299,6 +323,9 @@ class _HomePageState extends State<HomePage> {
                               textColor: Theme.of(context)
                                   .colorScheme
                                   .onSecondaryContainer,
+                              filter: (text) {
+                                return text.capitalizeFirstofEach;
+                              },
                             ),
                           ],
                         ),
@@ -342,6 +369,9 @@ class _HomePageState extends State<HomePage> {
                               textColor: Theme.of(context)
                                   .colorScheme
                                   .onSecondaryContainer,
+                              filter: (text) {
+                                return text.capitalizeFirstofEach;
+                              },
                             ),
                           ],
                         ),
@@ -442,7 +472,7 @@ Future<void> _eraseCatalogDialog(context, Function onDone) async {
     context: context,
     builder: (BuildContext context) {
       return AlertDialog(
-        title: Text(translate('Erase Catalog?')),
+        title: Text(translate('Erase Catalog?').capitalizeFirstofEach),
         content: SingleChildScrollView(
           child: ListBody(
             children: const <Widget>[
@@ -685,7 +715,7 @@ Future<void> _infoDaialog(context, setPage) async {
       String version = packageInfoGlobal.version;
       String buildNumber = packageInfoGlobal.buildNumber;
       return AlertDialog(
-        title: Text(translate('About')),
+        title: Text(translate('About').capitalizeFirstofEach),
         content: SingleChildScrollView(
           child: ListBody(
             children: [
@@ -715,12 +745,15 @@ Future<void> _infoDaialog(context, setPage) async {
                     fontWeight: FontWeight.bold,
                     textAlign: TextAlign.center,
                   ),
-                  const TextFont(
+                  TextFont(
                     text: "Lead Developer",
                     maxLines: 100,
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
                     textAlign: TextAlign.center,
+                    filter: (text) {
+                      return text.capitalizeFirstofEach;
+                    },
                   ),
                   GestureDetector(
                     onTap: () async {
@@ -830,7 +863,7 @@ Future<void> _supportDialog(context) async {
           return false;
         },
         child: AlertDialog(
-          title: Text(translate('Support the Developer')),
+          title: Text(translate('Support the Developer').capitalizeFirstofEach),
           content: SingleChildScrollView(
             child: ListBody(
               children: [

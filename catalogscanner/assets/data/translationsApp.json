@@ -1,0 +1,510 @@
+﻿{
+    "Google Play Store Listing": [
+        {
+            "English": "Catalog Scanner (for ACNH)",
+            "French": "Scanner de Catalogue (ACNH)",
+            "Spanish": "Escáner de Catálogo (ACNH)",
+            "Italian": "Scanner Catalogo (ACNH)",
+            "German": "Katalog-Scanner (ACNH)",
+            "Dutch": "Catalogusscanner (ACNH)"
+        },
+        {
+            "English": "Scan your catalog from ACNH and import it into the ACNH Pocket Guide app!",
+            "French": "Scannez votre catalogue et importez-le dans l'application ACNH Pocket Guide!",
+            "Spanish": "¡Escanee su catálogo de ACNH e impórtelo a la aplicación ACNH Pocket Guide!",
+            "Italian": "Scansiona il tuo catalogo da ACNH e importalo nell'app ACNH Pocket Guide!",
+            "German": "Scannen Sie Ihren Katalog und importieren Sie ihn in die ACNH Pocket Guide App!",
+            "Dutch": "Scan uw catalogus van ACNH en importeer deze in de ACNH Pocket Guide-app!"
+        },
+        {
+            "English": "***This application is experimental and may not support your device's hardware. Supported game languages: English, French, Spanish, German, Italian, and Dutch.***\n\nIf you want to track your collection without going through each item manually, use this app to help you out! It scans your ACNH game using the camera of your smartphone in just a few minutes and compiles a list of items. All you need to do is scroll through the catalog from your game, and entries are automatically added to your collection. Export this collection into the ACNH Pocket Guide app to view your collection progress and item details.",
+            "French": "***Cette application est expérimentale et peut ne pas prendre en charge le matériel de votre appareil. Langues de jeu prises en charge : anglais, français, allemand, espagnol, italien et néerlandais.***\n\nSi vous souhaitez suivre votre collection sans passer par chaque élément manuellement, utilisez cette application pour vous aider ! Il scanne votre jeu ACNH à l'aide de l'appareil photo de votre smartphone en quelques minutes seulement et compile une liste d'éléments. Tout ce que vous avez à faire est de faire défiler le catalogue de votre jeu et les entrées sont automatiquement ajoutées à votre collection. Exportez cette collection dans l'application ACNH Pocket Guide pour afficher la progression de votre collection et les détails des articles.",
+            "Spanish": "***Esta aplicación es experimental y es posible que no sea compatible con el hardware de su dispositivo. Idiomas de juego admitidos: inglés, francés, alemán, español, italiano y holandés.***\n\nSi desea realizar un seguimiento de su colección sin revisar cada elemento manualmente, ¡utilice esta aplicación para ayudarlo! Escanea su juego ACNH usando la cámara de su teléfono inteligente en solo unos minutos y compila una lista de elementos. Todo lo que necesita hacer es desplazarse por el catálogo de su juego y las entradas se agregarán automáticamente a su colección. Exporte esta colección a la aplicación ACNH Pocket Guide para ver el progreso de su colección y los detalles del artículo.",
+            "Italian": "***Questa applicazione è sperimentale e potrebbe non supportare l'hardware del tuo dispositivo. Lingue di gioco supportate: inglese, francese, tedesco, spagnolo, italiano e olandese.***\n\nSe vuoi tenere traccia della tua collezione senza esaminare ogni elemento manualmente, usa questa app per aiutarti! Scansiona il tuo gioco ACNH utilizzando la fotocamera del tuo smartphone in pochi minuti e compila un elenco di elementi. Tutto quello che devi fare è scorrere il catalogo dal tuo gioco e le voci vengono aggiunte automaticamente alla tua raccolta. Esporta questa raccolta nell'app ACNH Pocket Guide per visualizzare l'avanzamento della raccolta e i dettagli dell'articolo.",
+            "German": "***Diese Anwendung ist experimentell und unterstützt die Hardware Ihres Geräts möglicherweise nicht. Unterstützte Spielsprachen: Englisch, Französisch, Deutsch, Spanisch, Italienisch und Niederländisch.***\n\nWenn Sie Ihre Sammlung verfolgen möchten, ohne jeden Artikel manuell durchzugehen, verwenden Sie diese App, um Ihnen zu helfen! Es scannt Ihr ACNH-Spiel mit der Kamera Ihres Smartphones in nur wenigen Minuten und erstellt eine Liste mit Artikeln. Alles, was Sie tun müssen, ist, von Ihrem Spiel aus durch den Katalog zu scrollen, und die Einträge werden automatisch zu Ihrer Sammlung hinzugefügt. Exportieren Sie diese Sammlung in die ACNH Pocket Guide App, um Ihren Sammlungsfortschritt und Artikeldetails anzuzeigen.",
+            "Dutch": "***Deze applicatie is experimenteel en ondersteunt mogelijk de hardware van uw apparaat niet. Ondersteunde speltalen: Engels, Frans, Duits, Spaans, Italiaans en Nederlands.***\n\nAls je je verzameling wilt volgen zonder elk item handmatig te doorlopen, gebruik dan deze app om je te helpen! Het scant je ACNH-game in slechts enkele minuten met de camera van je smartphone en stelt een lijst met items samen. Het enige dat u hoeft te doen, is door de catalogus van uw game bladeren en items worden automatisch aan uw verzameling toegevoegd. Exporteer deze collectie naar de ACNH Pocket Guide-app om de voortgang van uw collectie en itemdetails te bekijken."
+        }
+    ],
+    "Main": [
+        {
+            "en": "Only English, French, Spanish, Italian, German, and Dutch is supported. Your catalog will only scan if your game is set to one of these languages!",
+            "fr": "Seuls l'anglais, le français, l'espagnol, l'italien, l'allemand et le néerlandais sont pris en charge. Votre catalogue ne sera scanné que si votre jeu est configuré dans l'une de ces langues !",
+            "es": "Solo se admiten los idiomas inglés, francés, español, italiano, alemán y holandés. ¡Tu catálogo solo se escaneará si tu juego está configurado en uno de estos idiomas!",
+            "it": "Sono supportati solo inglese, francese, spagnolo, italiano, tedesco e olandese. Il tuo catalogo verrà scansionato solo se il tuo gioco è impostato su una di queste lingue!",
+            "de": "Es werden nur Englisch, Französisch, Spanisch, Italienisch, Deutsch und Niederländisch unterstützt. Ihr Katalog wird nur gescannt, wenn Ihr Spiel auf eine dieser Sprachen eingestellt ist!",
+            "nl": "Alleen Engels, Frans, Spaans, Italiaans, Duits en Nederlands worden ondersteund. Je catalogus scant alleen als je game is ingesteld op een van deze talen!"
+        },
+        {
+            "en": "Languages",
+            "fr": "Langues",
+            "es": "Idiomas",
+            "it": "Le lingue",
+            "de": "Sprachen",
+            "nl": "Talen"
+        },
+        {
+            "en": "Catalog",
+            "fr": "Catalogue",
+            "es": "Catalogar",
+            "it": "Catalogare",
+            "de": "Katalog",
+            "nl": "Catalogus"
+        },
+        {
+            "en": "entries",
+            "fr": "entrées",
+            "es": "entradas",
+            "it": "inserimenti",
+            "de": "Einträge",
+            "nl": "inzendingen"
+        },
+        {
+            "en": "Export Catalog",
+            "fr": "Catalogue d'exportation",
+            "es": "Exportar catálogo",
+            "it": "Esporta catalogo",
+            "de": "Katalog exportieren",
+            "nl": "Catalogus exporteren"
+        },
+        {
+            "en": "Search...",
+            "fr": "Chercher...",
+            "es": "Búsqueda...",
+            "it": "Ricerca...",
+            "de": "Suche...",
+            "nl": "Zoekopdracht..."
+        },
+        {
+            "en": "No entries scanned.",
+            "fr": "Aucune entrée analysée.",
+            "es": "No se escanearon entradas.",
+            "it": "Nessuna voce scansionata.",
+            "de": "Keine Einträge gescannt.",
+            "nl": "Geen invoer gescand."
+        },
+        {
+            "en": "Scan Catalog",
+            "fr": "Catalogue de numérisation",
+            "es": "Escanear catálogo",
+            "it": "Scansione catalogo",
+            "de": "Katalog scannen",
+            "nl": "Scan catalogus"
+        },
+        {
+            "en": "Catalog Scanner",
+            "fr": "Numériseur de catalogue",
+            "es": "Escáner de catálogo",
+            "it": "Scanner del catalogo",
+            "de": "Katalog-Scanner",
+            "nl": "Catalogusscanner"
+        },
+        {
+            "en": "For ACNH Pocket Guide",
+            "fr": "Pour le ACNH Pocket Guide",
+            "es": "Para la ACNH Pocket Guide",
+            "it": "Per la ACNH Pocket Guide",
+            "de": "Für ACNH Pocket Guide",
+            "nl": "Voor ACNH Pocket Guide"
+        },
+        {
+            "en": "Scan Catalog",
+            "fr": "Catalogue de numérisation",
+            "es": "Escanear catálogo",
+            "it": "Scansione catalogo",
+            "de": "Katalog scannen",
+            "nl": "Scan catalogus"
+        },
+        {
+            "en": "View Catalog",
+            "fr": "Voir le catalogue",
+            "es": "Ver catálogo",
+            "it": "Visualizza catalogo",
+            "de": "Katalog ansehen",
+            "nl": "Catalogus bekijken"
+        },
+        {
+            "en": "Export Catalog",
+            "fr": "Catalogue d'exportation",
+            "es": "Exportar catálogo",
+            "it": "Esporta catalogo",
+            "de": "Katalog exportieren",
+            "nl": "Catalogus exporteren"
+        },
+        {
+            "en": "Scanner Guide",
+            "fr": "Guide du scanneur",
+            "es": "Guía del escáner",
+            "it": "Guida allo scanner",
+            "de": "Scanner-Handbuch",
+            "nl": "Scannerhandleiding"
+        },
+        {
+            "en": "App Info",
+            "fr": "Informations sur l'application",
+            "es": "Informacion de la applicacion",
+            "it": "Informazioni sull'app",
+            "de": "App-Information",
+            "nl": "App informatie"
+        },
+        {
+            "en": "Erase Catalog",
+            "fr": "Effacer le catalogue",
+            "es": "Borrar catálogo",
+            "it": "Cancella catalogo",
+            "de": "Katalog löschen",
+            "nl": "Wis catalogus"
+        },
+        {
+            "en": "Suggestions, bugs or concerns?",
+            "fr": "Suggestions, bugs ou préoccupations ?",
+            "es": "¿Sugerencias, errores o inquietudes?",
+            "it": "Suggerimenti, bug o dubbi?",
+            "de": "Vorschläge, Fehler oder Bedenken?",
+            "nl": "Suggesties, bugs of problemen?"
+        },
+        {
+            "en": "Send me an email!",
+            "fr": "Envoie-moi un email!",
+            "es": "¡Envíame un correo electrónico!",
+            "it": "Mandami un email!",
+            "de": "Schick mir eine E-mail!",
+            "nl": "Stuur me een e-mail!"
+        },
+        {
+            "en": "Catalog Scanning Data",
+            "fr": "Données de numérisation de catalogue",
+            "es": "Datos de escaneo del catálogo",
+            "it": "Dati di scansione del catalogo",
+            "de": "Scandaten des Katalogs",
+            "nl": "Catalogus scangegevens"
+        },
+        {
+            "en": "This will delete your entire scanned collection",
+            "fr": "Cela supprimera toute votre collection numérisée",
+            "es": "Esto eliminará toda su colección escaneada",
+            "it": "Questa operazione eliminerà l'intera raccolta scansionata",
+            "de": "Dadurch wird Ihre gesamte gescannte Sammlung gelöscht",
+            "nl": "Hiermee wordt je hele gescande verzameling verwijderd"
+        },
+        {
+            "en": "This cannot be undone",
+            "fr": "Ça ne peut pas être annulé",
+            "es": "Esto no se puede deshacer",
+            "it": "Questo non può essere annullato",
+            "de": "Das kann nicht rückgängig gemacht werden",
+            "nl": "Dit kan niet ongedaan gemaakt worden"
+        },
+        {
+            "en": "Your collection has been attached to your clipboard",
+            "fr": "Votre collection a été jointe à votre presse-papiers",
+            "es": "Su colección se ha adjuntado a su portapapeles",
+            "it": "La tua raccolta è stata allegata ai tuoi appunti",
+            "de": "Ihre Sammlung wurde an Ihre Zwischenablage angehängt",
+            "nl": "Uw verzameling is aan uw klembord gekoppeld"
+        },
+        {
+            "en": "Import Collection",
+            "fr": "Importer une collection",
+            "es": "Colección de importación",
+            "it": "Raccolta di importazione",
+            "de": "Sammlung importieren",
+            "nl": "Verzameling importeren"
+        },
+        {
+            "en": "Open ACNH Pocket Guide",
+            "fr": "Ouvrir ACNH Pocket Guide",
+            "es": "Abrir ACNH Pocket Guide",
+            "it": "Apri ACNH Pocket Guide",
+            "de": "Öffnen ACNH Pocket Guide",
+            "nl": "Open ACNH Pocket Guide"
+        },
+        {
+            "en": "Open the catalog scanner page",
+            "fr": "Ouvrir la page du scanner de catalogue",
+            "es": "Abra la página del escáner de catálogo",
+            "it": "Apri la pagina dello scanner del catalogo",
+            "de": "Öffnen Sie die Katalog-Scanner-Seite",
+            "nl": "Open de catalogusscannerpagina"
+        },
+        {
+            "en": "Paste your collection in the list text box",
+            "fr": "Collez votre collection dans la zone de texte de la liste",
+            "es": "Pegue su colección en el cuadro de texto de la lista",
+            "it": "Incolla la tua raccolta nella casella di testo dell'elenco",
+            "de": "Fügen Sie Ihre Sammlung in das Textfeld der Liste ein",
+            "nl": "Plak uw verzameling in het tekstvak van de lijst"
+        },
+        {
+            "en": "Open ACNH on your Switch",
+            "fr": "Ouvrez ACNH sur votre Switch",
+            "es": "Abre ACNH en tu Switch",
+            "it": "Apri ACNH sul tuo Switch",
+            "de": "Öffnen Sie ACNH auf Ihrem Switch",
+            "nl": "Open ACNH op uw switch"
+        },
+        {
+            "en": "Open your catalog and select any category you want to scan",
+            "fr": "Ouvrez votre catalogue et sélectionnez la catégorie que vous souhaitez numériser",
+            "es": "Abre tu catálogo y selecciona cualquier categoría que quieras escanear",
+            "it": "Apri il tuo catalogo e seleziona qualsiasi categoria che desideri scansionare",
+            "de": "Öffnen Sie Ihren Katalog und wählen Sie eine beliebige Kategorie aus, die Sie scannen möchten",
+            "nl": "Open uw catalogus en selecteer een categorie die u wilt scannen"
+        },
+        {
+            "en": "Point your camera at the list of items",
+            "fr": "Dirigez votre appareil photo vers la liste des éléments",
+            "es": "Apunte su cámara a la lista de elementos",
+            "it": "Punta la fotocamera sull'elenco degli elementi",
+            "de": "Richten Sie Ihre Kamera auf die Liste der Elemente",
+            "nl": "Richt uw camera op de lijst met items"
+        },
+        {
+            "en": "Tip: When you see the scroll arrow in the top right, use the right joy-con to scroll your catalog. This icon appears when it has scanned everything on that page.",
+            "fr": "Astuce : Lorsque vous voyez la flèche de défilement en haut à droite, utilisez le joy-con droit pour faire défiler votre catalogue. Cette icône apparaît lorsqu'il a tout numérisé sur cette page.",
+            "es": "Sugerencia: cuando vea la flecha de desplazamiento en la parte superior derecha, use el joy-con derecho para desplazarse por su catálogo. Este icono aparece cuando ha escaneado todo en esa página.",
+            "it": "Suggerimento: quando vedi la freccia di scorrimento in alto a destra, usa il joy-con destro per scorrere il catalogo. Questa icona appare quando ha scansionato tutto su quella pagina.",
+            "de": "Tipp: Wenn Sie oben rechts den Bildlaufpfeil sehen, verwenden Sie die rechte Joy-Con, um durch Ihren Katalog zu blättern. Dieses Symbol wird angezeigt, wenn alles auf dieser Seite gescannt wurde.",
+            "nl": "Tip: als je rechtsboven de schuifpijl ziet, gebruik je de rechter joy-con om door je catalogus te bladeren. Dit pictogram verschijnt wanneer alles op die pagina is gescand."
+        },
+        {
+            "en": "After scanning, export your catalog",
+            "fr": "Après numérisation, exportez votre catalogue",
+            "es": "Después de escanear, exporte su catálogo",
+            "it": "Dopo la scansione, esporta il tuo catalogo",
+            "de": "Exportieren Sie nach dem Scannen Ihren Katalog",
+            "nl": "Exporteer na het scannen uw catalogus"
+        },
+        {
+            "en": "This app was made to work directly with ACNH Pocket Guide",
+            "fr": "Cette application a été conçue pour fonctionner directement avec ACNH Pocket Guide",
+            "es": "Esta aplicación se creó para funcionar directamente con ACNH Pocket Guide",
+            "it": "Questa app è stata creata per funzionare direttamente con ACNH Pocket Guide",
+            "de": "Diese App wurde entwickelt, um direkt mit ACNH Pocket Guide zu arbeiten",
+            "nl": "Deze app is gemaakt om rechtstreeks met ACNH Pocket Guide te werken"
+        },
+        {
+            "en": "Lead Developer",
+            "fr": "Développeur principal",
+            "es": "Desarrollador principal",
+            "it": "Capo sviluppatore",
+            "de": "Leitender Entwickler",
+            "nl": "Hoofdontwikkelaar"
+        },
+        {
+            "en": "View Licenses",
+            "fr": "Afficher les licences",
+            "es": "Ver licencias",
+            "it": "Visualizza le licenze",
+            "de": "Lizenzen anzeigen",
+            "nl": "Licenties bekijken"
+        },
+        {
+            "en": "View App Onboarding",
+            "fr": "Voir l'intégration de l'application",
+            "es": "Ver incorporación de aplicaciones",
+            "it": "Visualizza Onboarding dell'app",
+            "de": "App-Onboarding anzeigen",
+            "nl": "App-onboarding bekijken"
+        },
+        {
+            "en": "If this application helped you out, consider supporting the ACNH Pocket Guide App.",
+            "fr": "Si cette application vous a aidé, envisagez de prendre en charge l'application ACNH Pocket Guide.",
+            "es": "Si esta aplicación lo ayudó, considere apoyar la aplicación ACNH Pocket Guide.",
+            "it": "Se questa applicazione ti ha aiutato, considera di supportare l'app ACNH Pocket Guide.",
+            "de": "Wenn Ihnen diese Anwendung geholfen hat, sollten Sie die ACNH Pocket Guide App unterstützen.",
+            "nl": "Als deze applicatie u heeft geholpen, overweeg dan om de ACNH Pocket Guide-app te ondersteunen."
+        },
+        {
+            "en": "Scan your collection from ACNH with ease!",
+            "fr": "Numérisez facilement votre collection d'ACNH !",
+            "es": "¡Escanee su colección de ACNH con facilidad!",
+            "it": "Scansiona facilmente la tua collezione da ACNH!",
+            "de": "Scannen Sie Ihre Sammlung von ACNH ganz einfach!",
+            "nl": "Scan eenvoudig uw verzameling van ACNH!"
+        },
+        {
+            "en": "Open your catalog and select any category you want to scan",
+            "fr": "Ouvrez votre catalogue et sélectionnez la catégorie que vous souhaitez numériser",
+            "es": "Abre tu catálogo y selecciona cualquier categoría que quieras escanear",
+            "it": "Apri il tuo catalogo e seleziona qualsiasi categoria che desideri scansionare",
+            "de": "Öffnen Sie Ihren Katalog und wählen Sie eine beliebige Kategorie aus, die Sie scannen möchten",
+            "nl": "Open uw catalogus en selecteer een categorie die u wilt scannen"
+        },
+        {
+            "en": "Start scanning and point your camera at the list of items",
+            "fr": "Commencez à numériser et pointez votre appareil photo vers la liste des éléments",
+            "es": "Comience a escanear y apunte su cámara a la lista de elementos",
+            "it": "Avvia la scansione e punta la fotocamera sull'elenco degli elementi",
+            "de": "Beginnen Sie mit dem Scannen und richten Sie Ihre Kamera auf die Liste der Elemente",
+            "nl": "Begin met scannen en richt uw camera op de lijst met items"
+        },
+        {
+            "en": "Export your collection to the ACNH Pocket Guide App",
+            "fr": "Exportez votre collection vers l'application ACNH Pocket Guide",
+            "es": "Exporte su colección a la aplicación Pocket Guide de ACNH",
+            "it": "Esporta la tua raccolta nell'app ACNH Pocket Guide",
+            "de": "Exportieren Sie Ihre Sammlung in die ACNH Pocket Guide App",
+            "nl": "Exporteer uw verzameling naar de ACNH Pocket Guide-app"
+        },
+        {
+            "en": "Start Scanning!",
+            "fr": "Lancez la numérisation !",
+            "es": "¡Empieza a escanear!",
+            "it": "Avvia la scansione!",
+            "de": "Beginnen Sie mit dem Scannen!",
+            "nl": "Begin met scannen!"
+        },
+        {
+            "en": "Deleted",
+            "fr": "Supprimé",
+            "es": "Eliminado",
+            "it": "Eliminato",
+            "de": "Gelöscht",
+            "nl": "verwijderd"
+        },
+        {
+            "en": "Don't show again",
+            "fr": "Ne plus afficher",
+            "es": "no volver a mostrar",
+            "it": "Non mostrare più",
+            "de": "Nicht mehr anzeigen",
+            "nl": "Niet meer laten zien"
+        },
+        {
+            "en": "OK",
+            "fr": "D'ACCORD",
+            "es": "DE ACUERDO",
+            "it": "OK",
+            "de": "OK",
+            "nl": "OKÉ"
+        },
+        {
+            "en": "Scanner Guide",
+            "fr": "Guide du scanneur",
+            "es": "Guía del escáner",
+            "it": "Guida allo scanner",
+            "de": "Scanner-Handbuch",
+            "nl": "Scannerhandleiding"
+        },
+        {
+            "en": "Your catalog is empty. Scan some entries before exporting.",
+            "fr": "Votre catalogue est vide. Analysez certaines entrées avant d'exporter.",
+            "es": "Su catálogo está vacío. Escanee algunas entradas antes de exportar.",
+            "it": "Il tuo catalogo è vuoto. Scansiona alcune voci prima dell'esportazione.",
+            "de": "Ihr Katalog ist leer. Scannen Sie einige Einträge vor dem Exportieren.",
+            "nl": "Je catalogus is leeg. Scan enkele vermeldingen voordat u exporteert."
+        },
+        {
+            "en": "Copied to clipboard!",
+            "fr": "Copié dans le presse-papier!",
+            "es": "¡Copiado al portapapeles!",
+            "it": "Copiato negli appunti!",
+            "de": "In die Zwischenablage kopiert!",
+            "nl": "Gekopieerd naar het klembord!"
+        },
+        {
+            "en": "There was an error exporting data! Please email dapperappdeveloper@gmail.com for more information.",
+            "fr": "Une erreur s'est produite lors de l'exportation des données ! Veuillez envoyer un e-mail à dapperappdeveloper@gmail.com pour plus d'informations.",
+            "es": "¡Hubo un error al exportar datos! Envíe un correo electrónico a dapperappdeveloper@gmail.com para obtener más información.",
+            "it": "Si è verificato un errore durante l'esportazione dei dati! Si prega di e-mail dapperappdeveloper@gmail.com per ulteriori informazioni.",
+            "de": "Beim Exportieren der Daten ist ein Fehler aufgetreten! Bitte senden Sie eine E-Mail an dapperappdeveloper@gmail.com für weitere Informationen.",
+            "nl": "Er is een fout opgetreden bij het exporteren van gegevens! Stuur een e-mail naar dapperappdeveloper@gmail.com voor meer informatie."
+        },
+        {
+            "en": "Erase Catalog?",
+            "fr": "Effacer le catalogue ?",
+            "es": "¿Borrar catálogo?",
+            "it": "Cancella catalogo?",
+            "de": "Katalog löschen?",
+            "nl": "Catalogus wissen?"
+        },
+        {
+            "en": "This will delete your entire scanned collection",
+            "fr": "Cela supprimera toute votre collection numérisée",
+            "es": "Esto eliminará toda su colección escaneada",
+            "it": "Questa operazione eliminerà l'intera raccolta scansionata",
+            "de": "Dadurch wird Ihre gesamte gescannte Sammlung gelöscht",
+            "nl": "Hiermee wordt je hele gescande verzameling verwijderd"
+        },
+        {
+            "en": "Cancel",
+            "fr": "Annuler",
+            "es": "Cancelar",
+            "it": "Annulla",
+            "de": "Stornieren",
+            "nl": "Annuleren"
+        },
+        {
+            "en": "Delete",
+            "fr": "Effacer",
+            "es": "Borrar",
+            "it": "Elimina",
+            "de": "Löschen",
+            "nl": "Verwijderen"
+        },
+        {
+            "en": "You're good to go!",
+            "fr": "Vous êtes prêt à partir !",
+            "es": "¡Eres bueno para ir!",
+            "it": "Sei a posto!",
+            "de": "Du bist startklar!",
+            "nl": "Je bent klaar om te gaan!"
+        },
+        {
+            "en": "Scanner Usage",
+            "fr": "Utilisation du scanneur",
+            "es": "Uso del escáner",
+            "it": "Utilizzo dello scanner",
+            "de": "Scannernutzung",
+            "nl": "Scannergebruik"
+        },
+        {
+            "en": "About",
+            "fr": "À propos",
+            "es": "Sobre",
+            "it": "Di",
+            "de": "Über",
+            "nl": "Wat betreft"
+        },
+        {
+            "en": "Support the Developer",
+            "fr": "Soutenir le développeur",
+            "es": "Apoyar al desarrollador",
+            "it": "Supporta lo sviluppatore",
+            "de": "Unterstützen Sie den Entwickler",
+            "nl": "Ondersteun de ontwikkelaar"
+        },
+        {
+            "en": "Changing camera lens",
+            "fr": "Changer l'objectif de la caméra",
+            "es": "Cambio de lente de la cámara",
+            "it": "Cambiare obiettivo della fotocamera",
+            "de": "Kameraobjektiv wechseln",
+            "nl": "Veranderen van cameralens"
+        },
+        {
+            "en": "Home",
+            "fr": "Domicile",
+            "es": "Casa",
+            "it": "Casa",
+            "de": "Zuhause",
+            "nl": "Thuis"
+        },
+        {
+            "en": "Scan",
+            "fr": "Analyse",
+            "es": "Escanear",
+            "it": "Scansione",
+            "de": "Scan",
+            "nl": "Scannen"
+        },
+        {
+            "en": "Catalog",
+            "fr": "Catalogue",
+            "es": "Catalogar",
+            "it": "Catalogare",
+            "de": "Katalog",
+            "nl": "Catalogus"
+        }
+    ]
+}

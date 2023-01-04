@@ -44,6 +44,7 @@ Future<bool> saveFoundText() async {
 }
 
 late Map<String, dynamic> dataSetTranslations;
+late Map<String, dynamic> dataSetTranslationsApp;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -55,6 +56,7 @@ void main() async {
   firstLogin = prefs.getBool('firstLogin') ?? true;
   packageInfoGlobal = await PackageInfo.fromPlatform();
   dataSetTranslations = await openJsonTranslations();
+  dataSetTranslationsApp = await openAppTranslations();
   runApp(const MyApp());
 }
 
@@ -192,13 +194,13 @@ Future<void> _supportedLanguagePopup(context) async {
               return false;
             },
             child: AlertDialog(
-              title: Text(translate('Languages')),
+              title: Text(translate('Languages').capitalizeFirst),
               content: SingleChildScrollView(
                 child: ListBody(
                   children: const [
                     TextFont(
                       text:
-                          "Only English, French, German, Spanish, Italian, and Dutch is supported. Your catalog will only scan if your game is set to one of these languages!",
+                          "Only English, French, Spanish, Italian, German, and Dutch is supported. Your catalog will only scan if your game is set to one of these languages!",
                       maxLines: 100,
                       fontSize: 16,
                     ),
@@ -337,6 +339,44 @@ Future<Map<String, dynamic>> openJsonTranslations() async {
   return map;
 }
 
+extension CapExtension on String {
+  String get capitalizeFirst =>
+      this.length > 0 ? '${this[0].toUpperCase()}${this.substring(1)}' : '';
+  String get allCaps => this.toUpperCase();
+  String get capitalizeFirstofEach => this
+      .replaceAll(RegExp(' +'), ' ')
+      .split(" ")
+      .map((str) => str.capitalizeFirst)
+      .join(" ");
+}
+
+Future<Map<String, dynamic>> openAppTranslations() async {
+  String input =
+      await rootBundle.loadString("assets/data/translationsAppKeyed.json");
+  dynamic map = jsonDecode(input);
+  return map;
+}
+
 String translate(String string) {
+  String locale = "en";
+  if (Platform.localeName.startsWith("en")) {
+    locale = "en";
+  } else if (Platform.localeName.startsWith("fr")) {
+    locale = "fr";
+  } else if (Platform.localeName.startsWith("es")) {
+    locale = "es";
+  } else if (Platform.localeName.startsWith("it")) {
+    locale = "it";
+  } else if (Platform.localeName.startsWith("de")) {
+    locale = "de";
+  } else if (Platform.localeName.startsWith("nl")) {
+    locale = "nl";
+  }
+  String stringLower = string.toLowerCase();
+  if (dataSetTranslationsApp["Main"] != null &&
+      dataSetTranslationsApp["Main"][stringLower] != null &&
+      dataSetTranslationsApp["Main"][stringLower][locale] != null) {
+    return dataSetTranslationsApp["Main"][stringLower][locale];
+  }
   return string;
 }

@@ -218,6 +218,10 @@ class _CatalogListState extends State<CatalogList> {
                                               textColor: Theme.of(context)
                                                   .colorScheme
                                                   .onSecondaryContainer,
+                                              filter: (text) {
+                                                return text
+                                                    .capitalizeFirstofEach;
+                                              },
                                             ),
                                             const SizedBox(height: 10),
                                           ],
