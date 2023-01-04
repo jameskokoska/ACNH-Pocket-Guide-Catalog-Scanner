@@ -155,18 +155,18 @@ class _FrameworkPageState extends State<FrameworkPage> {
                 ),
                 child: NavigationBar(
                   animationDuration: const Duration(milliseconds: 1000),
-                  destinations: const [
+                  destinations: [
                     NavigationDestination(
-                      icon: Icon(Icons.home_rounded),
-                      label: "Home",
+                      icon: const Icon(Icons.home_rounded),
+                      label: translate("Home"),
                     ),
                     NavigationDestination(
-                      icon: Icon(Icons.camera_rounded),
-                      label: "Scan",
+                      icon: const Icon(Icons.camera_rounded),
+                      label: translate("Scan"),
                     ),
                     NavigationDestination(
-                      icon: Icon(Icons.list_alt_rounded),
-                      label: "Catalog",
+                      icon: const Icon(Icons.list_alt_rounded),
+                      label: translate("Catalog"),
                     ),
                   ],
                   selectedIndex: currentPage >= 3 ? 0 : currentPage,
@@ -192,13 +192,13 @@ Future<void> _supportedLanguagePopup(context) async {
               return false;
             },
             child: AlertDialog(
-              title: const Text('English Only'),
+              title: Text(translate('Languages')),
               content: SingleChildScrollView(
                 child: ListBody(
                   children: const [
                     TextFont(
                       text:
-                          "Only English, French, German, Spanish, Italian, and Dutch is supported. Your catalog will only scan if your game is set to English!",
+                          "Only English, French, German, Spanish, Italian, and Dutch is supported. Your catalog will only scan if your game is set to one of these languages!",
                       maxLines: 100,
                       fontSize: 16,
                     ),
@@ -207,14 +207,14 @@ Future<void> _supportedLanguagePopup(context) async {
               ),
               actions: <Widget>[
                 TextButton(
-                  child: const Text('Don\'t show again'),
+                  child: Text(translate("Don't show again")),
                   onPressed: () {
                     prefs.setBool('hideSupportedLanguagePopup', true);
                     Navigator.of(context).pop();
                   },
                 ),
                 TextButton(
-                  child: const Text('OK'),
+                  child: Text(translate('OK')),
                   onPressed: () {
                     Navigator.of(context).pop();
                   },
@@ -335,4 +335,8 @@ Future<Map<String, dynamic>> openJsonTranslations() async {
       await rootBundle.loadString("assets/data/dataSetTranslations.json");
   dynamic map = jsonDecode(input);
   return map;
+}
+
+String translate(String string) {
+  return string;
 }

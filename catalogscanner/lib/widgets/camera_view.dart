@@ -128,8 +128,8 @@ class _CameraViewState extends State<CameraView> {
             scale: scale,
             child: Center(
               child: _changingCameraLens
-                  ? const Center(
-                      child: Text('Changing camera lens'),
+                  ? Center(
+                      child: Text(translate('Changing camera lens')),
                     )
                   : CameraPreview(_controller!),
             ),

@@ -59,8 +59,9 @@ class _CatalogListState extends State<CatalogList> {
                             bottom: 4,
                           ),
                           child: TextFont(
-                            text:
-                                searchFoundText.length.toString() + " entries",
+                            text: searchFoundText.length.toString() +
+                                " " +
+                                translate("entries"),
                             fontSize: 15,
                             textAlign: TextAlign.left,
                           ),
@@ -278,8 +279,9 @@ class _CatalogListState extends State<CatalogList> {
                                       ScaffoldMessenger.of(context)
                                           .showSnackBar(
                                         SnackBar(
-                                          content:
-                                              Text('Deleted ' + keyToRemove),
+                                          content: Text(translate('Deleted') +
+                                              " " +
+                                              keyToRemove),
                                         ),
                                       );
                                     },

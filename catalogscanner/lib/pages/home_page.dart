@@ -151,7 +151,9 @@ class _HomePageState extends State<HomePage> {
                                   .onSecondaryContainer,
                             ),
                             TextFont(
-                              text: foundText.length.toString() + " entries",
+                              text: foundText.length.toString() +
+                                  " " +
+                                  translate("entries"),
                               fontSize: 15,
                               textColor: Theme.of(context)
                                   .colorScheme
@@ -181,13 +183,13 @@ class _HomePageState extends State<HomePage> {
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(
                                 action: SnackBarAction(
-                                  label: "Scanner Guide",
+                                  label: translate("Scanner Guide"),
                                   onPressed: () {
                                     _aboutGuideDaialog(context, widget.setPage);
                                   },
                                 ),
-                                content: const Text(
-                                    "Your catalog is empty. Scan some entries before exporting."),
+                                content: Text(translate(
+                                    "Your catalog is empty. Scan some entries before exporting.")),
                               ),
                             );
                           }
@@ -362,8 +364,9 @@ class _HomePageState extends State<HomePage> {
                   child: Column(
                     children: const [
                       TextFont(
-                        text:
-                            "Suggestions, bugs or concerns?\nSend me an email!",
+                        text: "Suggestions, bugs or concerns?" +
+                            "\n" +
+                            "Send me an email!",
                         maxLines: 100,
                         fontSize: 15,
                         textAlign: TextAlign.center,
@@ -403,8 +406,8 @@ void exportData(context) async {
       ),
     );
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
-        content: Text('Copied to clipboard!'),
+      SnackBar(
+        content: Text(translate('Copied to clipboard!')),
       ),
     );
     success = true;
@@ -418,9 +421,9 @@ void exportData(context) async {
       success = true;
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text(
-              'There was an error exporting data! Please email dapperappdeveloper@gmail.com for more information.'),
+        SnackBar(
+          content: Text(translate(
+              'There was an error exporting data! Please email dapperappdeveloper@gmail.com for more information.')),
         ),
       );
     }
@@ -439,7 +442,7 @@ Future<void> _eraseCatalogDialog(context, Function onDone) async {
     context: context,
     builder: (BuildContext context) {
       return AlertDialog(
-        title: const Text('Erase Catalog?'),
+        title: Text(translate('Erase Catalog?')),
         content: SingleChildScrollView(
           child: ListBody(
             children: const <Widget>[
@@ -459,13 +462,13 @@ Future<void> _eraseCatalogDialog(context, Function onDone) async {
         ),
         actions: <Widget>[
           TextButton(
-            child: const Text('Cancel'),
+            child: Text(translate('Cancel')),
             onPressed: () {
               Navigator.of(context).pop();
             },
           ),
           TextButton(
-            child: const Text('Delete'),
+            child: Text(translate('Delete')),
             onPressed: () {
               foundText = {};
               saveFoundText();
@@ -489,7 +492,7 @@ Future<void> _exportGuideDaialog(context) async {
           return false;
         },
         child: AlertDialog(
-          title: const Text('You\'re good to go!'),
+          title: Text(translate("You're good to go!")),
           content: SingleChildScrollView(
             child: ListBody(
               children: [
@@ -559,7 +562,7 @@ Future<void> _exportGuideDaialog(context) async {
           ),
           actions: <Widget>[
             TextButton(
-              child: const Text('Open ACNH Pocket Guide'),
+              child: Text(translate('Open ACNH Pocket Guide')),
               onPressed: () async {
                 await LaunchApp.openApp(
                   androidPackageName: 'com.acnh.pocket_guide',
@@ -568,7 +571,7 @@ Future<void> _exportGuideDaialog(context) async {
               },
             ),
             TextButton(
-              child: const Text('OK'),
+              child: Text(translate('OK')),
               onPressed: () {
                 Navigator.of(context).pop();
               },
@@ -586,7 +589,7 @@ Future<void> _aboutGuideDaialog(context, Function(int) setPage) async {
     builder: (BuildContext context) {
       return AlertDialog(
         contentPadding: EdgeInsets.symmetric(horizontal: 0, vertical: 20),
-        title: const Text('Scanner Usage'),
+        title: Text(translate('Scanner Usage')),
         content: SingleChildScrollView(
           child: ListBody(
             children: const <Widget>[
@@ -657,14 +660,14 @@ Future<void> _aboutGuideDaialog(context, Function(int) setPage) async {
         ),
         actions: <Widget>[
           TextButton(
-            child: const Text('Start Scanning!'),
+            child: Text(translate('Start Scanning!')),
             onPressed: () {
               Navigator.of(context).pop();
               setPage(1);
             },
           ),
           TextButton(
-            child: const Text('OK'),
+            child: Text(translate('OK')),
             onPressed: () {
               Navigator.of(context).pop();
             },
@@ -682,7 +685,7 @@ Future<void> _infoDaialog(context, setPage) async {
       String version = packageInfoGlobal.version;
       String buildNumber = packageInfoGlobal.buildNumber;
       return AlertDialog(
-        title: const Text('About'),
+        title: Text(translate('About')),
         content: SingleChildScrollView(
           child: ListBody(
             children: [
@@ -806,7 +809,7 @@ Future<void> _infoDaialog(context, setPage) async {
         ),
         actions: <Widget>[
           TextButton(
-            child: const Text('OK'),
+            child: Text(translate('OK')),
             onPressed: () {
               Navigator.of(context).pop();
             },
@@ -827,7 +830,7 @@ Future<void> _supportDialog(context) async {
           return false;
         },
         child: AlertDialog(
-          title: const Text('Support the Developer'),
+          title: Text(translate('Support the Developer')),
           content: SingleChildScrollView(
             child: ListBody(
               children: [
@@ -864,7 +867,7 @@ Future<void> _supportDialog(context) async {
           ),
           actions: <Widget>[
             TextButton(
-              child: const Text('Open ACNH Pocket Guide'),
+              child: Text(translate('Open ACNH Pocket Guide')),
               onPressed: () async {
                 await LaunchApp.openApp(
                   androidPackageName: 'com.acnh.pocket_guide',
@@ -873,7 +876,7 @@ Future<void> _supportDialog(context) async {
               },
             ),
             TextButton(
-              child: const Text('OK'),
+              child: Text(translate('OK')),
               onPressed: () {
                 Navigator.of(context).pop();
               },

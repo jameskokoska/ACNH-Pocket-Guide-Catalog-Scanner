@@ -1,3 +1,4 @@
+import 'package:catalogscanner/main.dart';
 import 'package:flutter/material.dart';
 
 class TextFont extends StatelessWidget {
@@ -48,7 +49,7 @@ class TextFont extends StatelessWidget {
       height: 1.1,
     );
     return Text(
-      "$text",
+      translate("$text"),
       maxLines: maxLines,
       textAlign: textAlign,
       overflow: overflow ?? TextOverflow.ellipsis,
