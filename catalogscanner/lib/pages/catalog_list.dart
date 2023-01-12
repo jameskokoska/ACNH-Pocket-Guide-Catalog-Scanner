@@ -16,7 +16,7 @@ class CatalogList extends StatefulWidget {
 }
 
 class _CatalogListState extends State<CatalogList> {
-  Set searchFoundText = foundText;
+  Set searchFoundText = foundText.toList().reversed.toSet();
   String searchQuery = "";
 
   @override
@@ -70,7 +70,7 @@ class _CatalogListState extends State<CatalogList> {
                     ),
                   ),
                 ),
-                foundText.isEmpty
+                foundText.toList().reversed.toSet().isEmpty
                     ? const SliverToBoxAdapter(
                         child: SizedBox.shrink(),
                       )
@@ -121,7 +121,7 @@ class _CatalogListState extends State<CatalogList> {
                           ),
                         ),
                       ),
-                foundText.isEmpty
+                foundText.toList().reversed.toSet().isEmpty
                     ? const SliverToBoxAdapter(
                         child: SizedBox.shrink(),
                       )
@@ -150,7 +150,11 @@ class _CatalogListState extends State<CatalogList> {
                             onChanged: (text) {
                               if (text != "") {
                                 setState(() {
-                                  searchFoundText = foundText.where((i) {
+                                  searchFoundText = foundText
+                                      .toList()
+                                      .reversed
+                                      .toSet()
+                                      .where((i) {
                                     return i
                                         .toLowerCase()
                                         .contains(text.toLowerCase());
@@ -159,7 +163,8 @@ class _CatalogListState extends State<CatalogList> {
                                 });
                               } else {
                                 setState(() {
-                                  searchFoundText = foundText;
+                                  searchFoundText =
+                                      foundText.toList().reversed.toSet();
                                   searchQuery = text;
                                 });
                               }
@@ -167,7 +172,7 @@ class _CatalogListState extends State<CatalogList> {
                           ),
                         ),
                       ),
-                foundText.isEmpty
+                foundText.toList().reversed.toSet().isEmpty
                     ? SliverToBoxAdapter(
                         child: Column(
                           children: [
@@ -238,7 +243,7 @@ class _CatalogListState extends State<CatalogList> {
                     : const SliverToBoxAdapter(
                         child: SizedBox.shrink(),
                       ),
-                foundText.isEmpty
+                foundText.toList().reversed.toSet().isEmpty
                     ? const SliverToBoxAdapter(
                         child: SizedBox.shrink(),
                       )
@@ -270,14 +275,22 @@ class _CatalogListState extends State<CatalogList> {
                                       await saveFoundText();
                                       if (searchQuery != "") {
                                         setState(() {
-                                          searchFoundText =
-                                              foundText.where((i) {
+                                          searchFoundText = foundText
+                                              .toList()
+                                              .reversed
+                                              .toSet()
+                                              .where((i) {
                                             return i.toLowerCase().contains(
                                                 searchQuery.toLowerCase());
                                           }).toSet();
                                         });
                                       } else {
-                                        setState(() {});
+                                        setState(() {
+                                          searchFoundText = foundText
+                                              .toList()
+                                              .reversed
+                                              .toSet();
+                                        });
                                       }
 
                                       ScaffoldMessenger.of(context)
