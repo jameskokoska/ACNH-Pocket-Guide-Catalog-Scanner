@@ -1,13 +1,20 @@
 <h1 align="center" style="font-size:28px; line-height:1"><b>Catalog Scanner For ACNH Pocket Guide</b></h1>
+<div align="center" style="font-size:18px">
+
+| 1,400+ Downloads |
+| :-------------: |
+
+</div>
 <a href="https://play.google.com/store/apps/details?id=com.acnh.catalog_scanner">
   <div align="center">
     <img alt="Icon" src="Promotion/app-icon-store.png" width="200px">
   </div>
 </a>
-<p align="center">
-  Available here: <br/>
-  https://play.google.com/store/apps/details?id=com.acnh.catalog_scanner
-</p>
+<a href="https://play.google.com/store/apps/details?id=com.acnh.catalog_scanner">
+  <div align="center">
+    <img alt="Icon" src="Promotion/google-play-badge.png" width="200px">
+  </div>
+</a>
 
 ## Technologies
 * [Google ML Kit](https://developers.google.com/ml-kit)
@@ -19,7 +26,7 @@ ACNH Catalog allows users to quickly and easily scan their in-game catalog using
 
 The app is built using Flutter and Dart and follows Material Design guidelines to ensure the app looks modern and intuitive.
 
-Under the hood, a `Set` database is used to ensure fast lookup times with O(1) complexity. This means that searching for items that exist when scanned is quick and efficient, without any delays. Esepcially since text recognition uses a lot of compute.
+Under the hood, a `Set` database is used to ensure fast lookup times with O(1) complexity. This means that searching for items that exist when scanned is quick and efficient, without any delays. Especially since text recognition uses a lot of compute.
 
 To use the app, simply open it and point a phone's camera at your in-game catalog. The app will automatically detect the text and allow users to import it into ACNH Pocket Guide with just a few taps.
 
