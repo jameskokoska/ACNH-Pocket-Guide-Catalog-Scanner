@@ -8,6 +8,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_share/flutter_share.dart';
 import 'package:external_app_launcher/external_app_launcher.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class HomePage extends StatefulWidget {
@@ -594,6 +595,12 @@ Future<void> _exportGuideDaialog(context) async {
             TextButton(
               child: Text(translate('Open ACNH Pocket Guide')),
               onPressed: () async {
+                final prefs = await SharedPreferences.getInstance();
+                if (await inAppReview.isAvailable() &&
+                    prefs.getBool('askForReview2') == null) {
+                  inAppReview.requestReview();
+                  prefs.setBool('askForReview2', true);
+                }
                 await LaunchApp.openApp(
                   androidPackageName: 'com.acnh.pocket_guide',
                 );
@@ -602,7 +609,13 @@ Future<void> _exportGuideDaialog(context) async {
             ),
             TextButton(
               child: Text(translate('OK')),
-              onPressed: () {
+              onPressed: () async {
+                final prefs = await SharedPreferences.getInstance();
+                if (await inAppReview.isAvailable() &&
+                    prefs.getBool('askForReview3') == null) {
+                  inAppReview.requestReview();
+                  prefs.setBool('askForReview3', true);
+                }
                 Navigator.of(context).pop();
               },
             ),

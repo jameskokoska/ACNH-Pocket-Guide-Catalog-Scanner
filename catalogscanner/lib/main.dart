@@ -12,6 +12,7 @@ import 'package:catalogscanner/widgets/tappable.dart';
 import 'package:catalogscanner/widgets/text_font.dart';
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
+import 'package:in_app_review/in_app_review.dart';
 import 'package:system_theme/system_theme.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:package_info_plus/package_info_plus.dart';
@@ -40,6 +41,21 @@ String foundTextToStringList() {
 Future<bool> saveFoundText() async {
   final prefs = await SharedPreferences.getInstance();
   prefs.setStringList('foundText', foundText.toList());
+  return true;
+}
+
+final InAppReview inAppReview = InAppReview.instance;
+
+Future<bool> askForReview() async {
+  final prefs = await SharedPreferences.getInstance();
+  if (foundText.toList().reversed.toSet().isEmpty == false &&
+      prefs.getBool('askForReview') == null) {
+    prefs.setBool('askForReview', true);
+    if (await inAppReview.isAvailable()) {
+      debugPrint("asking for review...");
+      inAppReview.requestReview();
+    }
+  }
   return true;
 }
 
@@ -109,6 +125,7 @@ class _FrameworkPageState extends State<FrameworkPage> {
 
   void setPage(int page) {
     saveFoundText();
+    if (page == 2) askForReview();
     setState(() {
       currentPage = page;
     });
