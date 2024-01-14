@@ -1,7 +1,7 @@
 <h1 align="center" style="font-size:28px; line-height:1"><b>Catalog Scanner For ACNH Pocket Guide</b></h1>
 <div align="center" style="font-size:18px">
 
-| 10K+ Downloads |
+| 15K+ Downloads |
 | :-------------: |
 
 </div>
