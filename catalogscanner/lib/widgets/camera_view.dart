@@ -9,7 +9,7 @@ import 'package:google_mlkit_commons/google_mlkit_commons.dart';
 import '../main.dart';
 
 class CameraView extends StatefulWidget {
-  CameraView(
+  const CameraView(
       {Key? key,
       required this.title,
       required this.customPaint,
@@ -85,13 +85,13 @@ class _CameraViewState extends State<CameraView> {
       width: 50.0,
       child: FloatingActionButton(
         onPressed: _switchLiveCamera,
+        mini: true,
         child: Icon(
           Platform.isIOS
               ? Icons.flip_camera_ios_outlined
               : Icons.flip_camera_android_outlined,
           size: 30,
         ),
-        mini: true,
       ),
     );
   }

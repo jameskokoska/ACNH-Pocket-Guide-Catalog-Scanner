@@ -18,7 +18,7 @@
 
 ## Technologies
 * [Google ML Kit](https://developers.google.com/ml-kit)
-* [Flutter](https://flutter.dev/)
+* [Flutter](https://flutter.dev/) (v3.19.6)
 * [Dart](https://dart.dev/)
 
 ## Overview
